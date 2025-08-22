@@ -1,5 +1,6 @@
 import Banner from "../Banner/Banner";
 import CoffeeFeatures from "../CoffeeFeatures/CoffeeFeatures";
+import Footer from "../Footer/Footer";
 import InstagramGallery from "../InstagramGallery/InstagramGallery";
 import Navbar from "../Navbar/Navbar";
 import Products from "../Products/Products";
@@ -14,6 +15,7 @@ const Home = () => {
         <Products></Products>
       </div>
       <InstagramGallery></InstagramGallery>
+      <Footer></Footer>
     </div>
   );
 };

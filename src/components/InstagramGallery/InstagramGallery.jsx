@@ -9,7 +9,7 @@ import rectangle16 from '../../assets/cups/Rectangle 16.png'
 
 const InstagramGallery = () => {
   return (
-    <div className="bg-white py-10">
+    <div className="bg-white pt-10 pb-20">
       <div className="w-4/5 mx-auto flex flex-col justify-center items-center gap-3">
         <p className="text-gray-900 text-center">Follow Us Now</p>
         <h3 className="text-[#331A15] text-4xl font-Rancho text-center text-shadow-lg/30">

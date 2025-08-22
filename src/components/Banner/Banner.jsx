@@ -7,10 +7,10 @@ const Banner = () => {
       style={{ backgroundImage: `url(${banner})` }}
     >
       <div className="w-[640px]">
-        <h2 className="text-2xl md:text-5xl font-Rancho">
+        <h2 className="text-2xl md:text-5xl font-Rancho text-white">
           Would you like a Cup of Delicious Coffee?
         </h2>
-        <p className="my-4">
+        <p className="my-4 text-white">
           It's coffee time - Sip & Savor - Relaxation in every sip! Get the
           nostalgia back!! Your companion of every moment!!! Enjoy the beautiful
           moments and make them memorable.
