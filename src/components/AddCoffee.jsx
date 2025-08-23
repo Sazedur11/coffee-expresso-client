@@ -4,6 +4,23 @@ import Footer from "./Footer/Footer";
 import Navbar from "./Navbar/Navbar";
 
 const AddCoffee = () => {
+
+  const handleAddCoffee = e =>{
+    e.preventDefault();
+    const form = e.target;
+    const name = form.name.value;
+    const chef = form.chef.value;
+    const supplier = form.supplier.value;
+    const taste = form.taste.value;
+    const category = form.category.value;
+    const details = form.details.value;
+    const photo = form.photo.value;
+
+    const newCoffee = {name, chef, supplier, taste, category, details, photo}
+
+    console.log(newCoffee)
+  }
+
   return (
     <>
       <Navbar></Navbar>
@@ -23,13 +40,14 @@ const AddCoffee = () => {
               point of using Lorem Ipsum is that it has a more-or-less normal
               distribution of letters, as opposed to using Content here.
             </p>
-            <form>
+            <form onSubmit={handleAddCoffee}>
               {/* form raw*/}
               <div className="flex gap-4 mb-4">
                 <div className="flex flex-col gap-2 w-1/2">
                 <label className="text-gray-900">Name</label>
                 <input
                   type="text"
+                  name="name"
                   className="w-full input bg-white text-gray-600 focus:border focus:border-[#E3B577] focus:ring-2 focus:ring-[#E3B577] "
                   placeholder="Coffee Name"
                 />
@@ -38,6 +56,7 @@ const AddCoffee = () => {
                 <label className="text-gray-900">Chef</label>
                 <input
                   type="text"
+                  name="chef"
                   className="input w-full bg-white text-gray-600 focus:border focus:border-[#E3B577] focus:ring-2 focus:ring-[#E3B577] "
                   placeholder="Coffee Chef"
                 />
@@ -49,6 +68,7 @@ const AddCoffee = () => {
                 <label className="text-gray-900">Supplier</label>
                 <input
                   type="text"
+                  name="supplier"
                   className="w-full input bg-white text-gray-600 focus:border focus:border-[#E3B577] focus:ring-2 focus:ring-[#E3B577] "
                   placeholder="Supplier"
                 />
@@ -57,6 +77,7 @@ const AddCoffee = () => {
                 <label className="text-gray-900">Taste</label>
                 <input
                   type="text"
+                  name="taste"
                   className="input w-full bg-white text-gray-600 focus:border focus:border-[#E3B577] focus:ring-2 focus:ring-[#E3B577] "
                   placeholder="Taste"
                 />
@@ -68,6 +89,7 @@ const AddCoffee = () => {
                 <label className="text-gray-900">Category</label>
                 <input
                   type="text"
+                  name="category"
                   className="w-full input bg-white text-gray-600 focus:border focus:border-[#E3B577] focus:ring-2 focus:ring-[#E3B577] "
                   placeholder="Category"
                 />
@@ -76,6 +98,7 @@ const AddCoffee = () => {
                 <label className="text-gray-900">Details</label>
                 <input
                   type="text"
+                  name="details"
                   className="input w-full bg-white text-gray-600 focus:border focus:border-[#E3B577] focus:ring-2 focus:ring-[#E3B577] "
                   placeholder="Details"
                 />
@@ -86,6 +109,7 @@ const AddCoffee = () => {
                 <label className="text-gray-900">Photo Url</label>
                 <input
                   type="text"
+                  name="photo"
                   className="w-full input bg-white text-gray-600 focus:border focus:border-[#E3B577] focus:ring-2 focus:ring-[#E3B577] "
                   placeholder="Photo Url"
                 />
