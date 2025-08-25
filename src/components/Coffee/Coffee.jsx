@@ -53,7 +53,7 @@ const Coffee = ({ coffee }) => {
         </p>
       </div>
       <div className="text-white flex flex-col gap-2 mx-4">
-        <Link to={"/"}>
+        <Link to={`/coffeeDetails/${_id}`}>
           
           <button className="bg-[#D2B48C] p-2 rounded-sm">
             <FaEye></FaEye>
