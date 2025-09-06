@@ -2,13 +2,45 @@ import { Link, useLoaderData } from "react-router-dom";
 import Footer from "./Footer/Footer";
 import Navbar from "./Navbar/Navbar";
 import { FaArrowLeft } from "react-icons/fa";
+import Swal from "sweetalert2";
 
 const UpdateCoffee = () => {
   const allCoffee = useLoaderData();
-  const { name, chef, supplier, taste, category, details, photo } = allCoffee;
+  const { _id, name, chef, supplier, taste, category, details, photo } = allCoffee;
+  console.log(_id)
 
   const handleUpdatedCoffee = (e) => {
     e.preventDefault();
+    const form = e.target;
+    const name = form.name.value;
+    const chef = form.chef.value;
+    const supplier = form.supplier.value;
+    const taste = form.taste.value;
+    const category = form.category.value;
+    const details = form.details.value;
+    const photo = form.photo.value;
+
+    const updatedCoffeeDetails = { name, chef, supplier, taste, category, details, photo };
+
+    fetch(`http://localhost:5000/coffee/${_id}`, {
+      method: 'PUT',
+      headers: {
+        'content-type' : 'application/json'
+      },
+      body: JSON.stringify(updatedCoffeeDetails)
+    })
+    .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+            if (data.modifiedCount > 0) {
+              Swal.fire({
+                title: "success!",
+                text: "Updated Coffee Details successfull",
+                icon: "success",
+                confirmButtonText: "Cool",
+              });
+            }
+          });
   };
 
   return (
@@ -24,7 +56,7 @@ const UpdateCoffee = () => {
           </Link>
           <div className="bg-[#F4F3F0] px-10 py-15">
             <h3 className="text-[#331A15] text-4xl font-Rancho text-center text-shadow-lg/30">
-              Update Existing Coffee Details
+              Update Existing Details: {name}
             </h3>
             <p className="text-gray-900 text-center w-2xl mx-auto my-4">
               It is a long established fact that a reader will be distraceted by
@@ -40,6 +72,7 @@ const UpdateCoffee = () => {
                   <input
                     type="text"
                     name="name"
+                    defaultValue={name}
                     className="w-full input bg-white text-gray-600 focus:border focus:border-[#E3B577] focus:ring-2 focus:ring-[#E3B577] "
                     placeholder="Coffee Name"
                   />
@@ -49,6 +82,7 @@ const UpdateCoffee = () => {
                   <input
                     type="text"
                     name="chef"
+                    defaultValue={chef}
                     className="input w-full bg-white text-gray-600 focus:border focus:border-[#E3B577] focus:ring-2 focus:ring-[#E3B577] "
                     placeholder="Coffee Chef"
                   />
@@ -61,6 +95,7 @@ const UpdateCoffee = () => {
                   <input
                     type="text"
                     name="supplier"
+                    defaultValue={supplier}
                     className="w-full input bg-white text-gray-600 focus:border focus:border-[#E3B577] focus:ring-2 focus:ring-[#E3B577] "
                     placeholder="Supplier"
                   />
@@ -70,6 +105,7 @@ const UpdateCoffee = () => {
                   <input
                     type="text"
                     name="taste"
+                    defaultValue={taste}
                     className="input w-full bg-white text-gray-600 focus:border focus:border-[#E3B577] focus:ring-2 focus:ring-[#E3B577] "
                     placeholder="Taste"
                   />
@@ -82,6 +118,7 @@ const UpdateCoffee = () => {
                   <input
                     type="text"
                     name="category"
+                    defaultValue={category}
                     className="w-full input bg-white text-gray-600 focus:border focus:border-[#E3B577] focus:ring-2 focus:ring-[#E3B577] "
                     placeholder="Category"
                   />
@@ -91,6 +128,7 @@ const UpdateCoffee = () => {
                   <input
                     type="text"
                     name="details"
+                    defaultValue={details}
                     className="input w-full bg-white text-gray-600 focus:border focus:border-[#E3B577] focus:ring-2 focus:ring-[#E3B577] "
                     placeholder="Details"
                   />
@@ -102,6 +140,7 @@ const UpdateCoffee = () => {
                 <input
                   type="text"
                   name="photo"
+                  defaultValue={photo}
                   className="w-full input bg-white text-gray-600 focus:border focus:border-[#E3B577] focus:ring-2 focus:ring-[#E3B577] "
                   placeholder="Photo Url"
                 />

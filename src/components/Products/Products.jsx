@@ -2,9 +2,11 @@ import { SlCup } from "react-icons/sl";
 import bgImg1 from "../../assets/more/1.png";
 import { Link } from "react-router-dom";
 import Coffee from "../Coffee/Coffee";
+import { useState } from "react";
 
 const Products = ({ allCoffee }) => {
   
+  const [coffees, setCoffees] = useState(allCoffee)
 
   return (
     <div
@@ -24,8 +26,8 @@ const Products = ({ allCoffee }) => {
           </button>
         </Link>
         <div className="grid md:grid-cols-2 grid-cols-1 gap-4 mt-8">
-          {allCoffee.map((coffee) => (
-            <Coffee key={coffee._id} coffee={coffee}></Coffee>
+          {coffees.map((coffee) => (
+            <Coffee key={coffee._id} coffee={coffee} coffees={coffees} setCoffees={setCoffees}></Coffee>
           ))}
         </div>
       </div>
